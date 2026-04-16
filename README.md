@@ -1,12 +1,12 @@
 # Plane MCP for Claude
 
-A Model Context Protocol (MCP) server that connects [Plane](https://plane.so) to Claude — works with Plane Cloud (`api.plane.so`) and any self-hosted instance.
+A Model Context Protocol (MCP) server that connects [Plane](https://plane.so) to Claude. Works with Plane Cloud (`api.plane.so`) and any self-hosted instance.
 
 Exposes Plane's REST API as tools that Claude (Desktop, Code, or any MCP-aware client) can use to read, create, and update projects, work items (issues), comments, states, labels, and workspace members.
 
 ## Install
 
-### Option A — Claude Desktop (recommended)
+### Option A: Claude Desktop (recommended)
 
 The easiest way. Install as a native Desktop Extension (`.dxt`):
 
@@ -18,7 +18,7 @@ The easiest way. Install as a native Desktop Extension (`.dxt`):
    - **Workspace Slug**
 4. Click Install. The Plane tools appear in the MCP tool list right away.
 
-### Option B — Claude Code / manual
+### Option B: Claude Code / manual
 
 ```bash
 git clone https://github.com/dennisjoch/plane-mcp-for-claude.git
@@ -48,7 +48,7 @@ Restart Claude Code. The Plane tools will appear in the MCP tool list.
 
 ## Get an API token
 
-In Plane, open **Workspace Settings → API Tokens** and create a new token. Copy the value — you won't see it again.
+In Plane, open **Workspace Settings → API Tokens** and create a new token. Copy the value; you won't see it again.
 
 The workspace slug is visible in every Plane URL: `https://plane.example.com/<slug>/projects/…`.
 
