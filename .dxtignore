@@ -1,0 +1,6 @@
+.git/
+.gitignore
+.dxtignore
+.DS_Store
+*.log
+*.dxt

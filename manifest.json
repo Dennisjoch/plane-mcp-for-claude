@@ -1,0 +1,93 @@
+{
+  "manifest_version": "0.2",
+  "name": "plane-mcp",
+  "display_name": "Plane",
+  "version": "0.1.0",
+  "description": "MCP server for Plane — read and manage projects, work items, comments, states, labels, and members.",
+  "long_description": "Access your Plane workspace from Claude. Works with Plane Cloud (api.plane.so) and self-hosted instances. Exposes 12 tools covering projects, work items (issues), comments, states, labels, and workspace members.",
+  "author": {
+    "name": "Dennis Joch"
+  },
+  "homepage": "https://github.com/dennisjoch/plane-mcp-for-claude",
+  "documentation": "https://github.com/dennisjoch/plane-mcp-for-claude#readme",
+  "support": "https://github.com/dennisjoch/plane-mcp-for-claude/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dennisjoch/plane-mcp-for-claude"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/index.mjs"
+      ],
+      "env": {
+        "PLANE_API_KEY": "${user_config.api_key}",
+        "PLANE_BASE_URL": "${user_config.base_url}",
+        "PLANE_WORKSPACE_SLUG": "${user_config.workspace_slug}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "list_projects", "description": "List all projects in the workspace." },
+    { "name": "list_work_items", "description": "List work items (issues) in a project." },
+    { "name": "search_work_items", "description": "Full-text search across the workspace." },
+    { "name": "get_work_item", "description": "Fetch a single work item with full description." },
+    { "name": "create_work_item", "description": "Create a new work item (issue)." },
+    { "name": "update_work_item", "description": "Patch fields of an existing work item." },
+    { "name": "delete_work_item", "description": "Permanently delete a work item." },
+    { "name": "list_states", "description": "List workflow states (Backlog, Todo, …) for a project." },
+    { "name": "list_labels", "description": "List labels defined in a project." },
+    { "name": "list_members", "description": "List workspace members." },
+    { "name": "list_comments", "description": "List comments on a work item." },
+    { "name": "add_comment", "description": "Post a comment on a work item." }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "plane",
+    "issues",
+    "project-management",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "anthropic"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Plane API Key",
+      "description": "Create one in Plane → Workspace Settings → API Tokens.",
+      "required": true,
+      "sensitive": true
+    },
+    "base_url": {
+      "type": "string",
+      "title": "Plane Base URL",
+      "description": "Base URL of your Plane instance, no trailing slash (e.g. https://api.plane.so or https://plane.example.com).",
+      "required": true,
+      "default": "https://api.plane.so"
+    },
+    "workspace_slug": {
+      "type": "string",
+      "title": "Workspace Slug",
+      "description": "The workspace slug from your Plane URL (https://plane.example.com/<slug>/…).",
+      "required": true
+    }
+  }
+}

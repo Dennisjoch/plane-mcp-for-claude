@@ -1,0 +1,48 @@
+{
+  "name": "plane-mcp",
+  "version": "0.1.0",
+  "description": "Model Context Protocol (MCP) server for Plane — read and manage projects, work items, comments, states, labels, and members from Claude.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Dennis Joch",
+  "homepage": "https://github.com/dennisjoch/plane-mcp-for-claude#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennisjoch/plane-mcp-for-claude.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dennisjoch/plane-mcp-for-claude/issues"
+  },
+  "keywords": [
+    "plane",
+    "plane.so",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "anthropic",
+    "issues",
+    "project-management"
+  ],
+  "bin": {
+    "plane-mcp": "./index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "manifest.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node index.mjs",
+    "validate": "npx -y @anthropic-ai/dxt validate manifest.json",
+    "build": "rm -f plane-mcp.dxt && npx -y @anthropic-ai/dxt pack . plane-mcp.dxt"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
